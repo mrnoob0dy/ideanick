@@ -1,5 +1,5 @@
 {
-    "name": "backend",
+    "name": "@ideanick/backend",
     "private": true,
     "version": "0.0.0",
     "scripts": {
@@ -8,9 +8,12 @@
         "start": "node ./dist/index.js"
     },
     "dependencies": {
+        "@trpc/server": "^10.45.2",
+        "cors": "^2.8.5",
         "express": "^4.21.2"
     },
     "devDependencies": {
+        "@types/cors": "^2.8.17",
         "@types/express": "^5.0.0",
         "@types/node": "^22.13.0",
         "rimraf": "^6.0.1",
