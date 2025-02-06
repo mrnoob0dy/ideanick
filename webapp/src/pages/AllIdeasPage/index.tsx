@@ -1,4 +1,6 @@
+import { getViewIdeaRoute } from "../../lib/routes";
 import { trpc } from "../../lib/trpc";
+import { Link } from "react-router-dom";
 
 export const AllIdeasPAge = () => {
     const { data, error, isLoading, isFetching, isError } =
@@ -17,7 +19,7 @@ export const AllIdeasPAge = () => {
                 {data.ideas.map((item) => {
                     return (
                         <div key={item.nick}>
-                            <h2>{item.name}</h2>
+                            <h2><Link to={getViewIdeaRoute({ideaNick: item.nick})}>{item.name}</Link></h2>
                             <p>{item.description}</p>
                         </div>
                     );
