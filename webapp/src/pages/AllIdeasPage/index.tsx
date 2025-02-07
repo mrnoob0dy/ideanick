@@ -1,6 +1,7 @@
 import { getViewIdeaRoute } from "../../lib/routes";
 import { trpc } from "../../lib/trpc";
 import { Link } from "react-router-dom";
+import css from './index.module.scss';
 
 export const AllIdeasPAge = () => {
     const { data, error, isLoading, isFetching, isError } =
@@ -14,16 +15,18 @@ export const AllIdeasPAge = () => {
 
     return (
         <div>
-            <h1>All Ideas</h1>
-            <div>
-                {data.ideas.map((item) => {
-                    return (
-                        <div key={item.nick}>
-                            <h2><Link to={getViewIdeaRoute({ideaNick: item.nick})}>{item.name}</Link></h2>
-                            <p>{item.description}</p>
-                        </div>
-                    );
-                })}
+            <h1 className={css.title}>All Ideas</h1>
+            <div className={css.ideas}>
+                {data.ideas.map((idea) => (
+                    <div className={css.idea} key={idea.nick}>
+                        <h2 className={css.ideaName}>
+                        <Link className={css.ideaLink} to={getViewIdeaRoute({ ideaNick: idea.nick })}>
+                            {idea.name}
+                        </Link>
+                        </h2>
+                        <p className={css.ideaDescription}>{idea.description}</p>
+                    </div>
+                ))}
             </div>
         </div>
     );

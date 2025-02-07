@@ -1,0 +1,20 @@
+@use './reset.scss';
+@use './vars.scss';
+@use './mixins.scss';
+
+html,
+body,
+#root {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  background: var(--color-black);
+  color: var(--color-black);
+  line-height: var(--line-height);
+}

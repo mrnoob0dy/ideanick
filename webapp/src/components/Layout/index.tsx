@@ -1,20 +1,23 @@
 import {Link, Outlet} from 'react-router-dom';
 import {getAllIdeasRoute} from '../../lib/routes.ts';
-
+import css from './index.module.scss';
 
 export const Layout = () => {
     return (
-        <div>
-            <p>
-                <b>IdeaNick</b>
-            </p>
-            <ul>
-                <li>
-                    <Link to={getAllIdeasRoute()}>All Ideas</Link>
+        <div className={css.layout}>
+            <div className={css.navigation}>
+                <div className={css.logo}>IdeaNick</div>
+                <ul className={css.menu}>
+                <li className={css.item}>
+                    <Link className={css.link} to={getAllIdeasRoute()}>
+                    All Ideas
+                    </Link>
                 </li>
-            </ul>
-            <hr />
-            <div><Outlet></Outlet></div>
+                </ul>
+            </div>
+            <div className={css.content}>
+                <Outlet />
+            </div>
         </div>
     )
 }

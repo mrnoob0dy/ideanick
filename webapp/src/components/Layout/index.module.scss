@@ -1,0 +1,17 @@
+@use '../../styles/_vars';
+@use '../../styles/_mixins';
+
+.logo {
+    font-size: 30px;
+    color: aqua;
+}
+
+.link {
+    color: var(--color-blue);
+    font-size: 20px;
+    transition: color 0.3s ease-in;
+
+    &:hover {
+        color: var(--color-red);
+    }
+}
