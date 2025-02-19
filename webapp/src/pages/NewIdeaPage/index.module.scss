@@ -2,3 +2,15 @@
     font-size: 30px;
     color: red;
 }
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: start;
+    max-width: 300px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--color-black);
+    border-radius: 8px;
+}
