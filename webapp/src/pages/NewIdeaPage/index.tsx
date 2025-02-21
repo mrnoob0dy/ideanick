@@ -8,6 +8,8 @@ import { trpc } from '../../lib/trpc'
 import { zCreateIdeaTrpcInput } from '@ideanick/backend/src/router/createIdea/input'
 import { useState } from 'react'
 import { Alert } from '../../components/Alert'
+import { Button } from '../../components/Button'
+import { FromItems } from '../../components/FormItems'
 
 export const NewIdeaPage = () => {
     const [successMessageVisible, setSuccessMessageVisible] = useState(false)
@@ -47,18 +49,16 @@ export const NewIdeaPage = () => {
                 formik.handleSubmit()}
             }
         >
-            <Input name='name' label='Name' formik={formik} />
-            <Input name='nick' label='Nick' formik={formik} />
-            <Input name='description' label='Description' formik={formik} />
-            <Textarea name='text' label='Text' formik={formik} />
-            {!formik.isValid && !!formik.submitCount && <div style={{color: 'red'}}>Some fields are invalid</div>}
-            {!!submittingError && <Alert color='red'>{submittingError}</Alert>}
-            {successMessageVisible && <Alert color='green'>Idea created</Alert>}
-            <button type="submit" disabled={formik.isSubmitting}>
-                {
-                    formik.isSubmitting ? 'Submitting...' : 'Create Idea'
-                }
-                </button>
+            <FromItems>
+                <Input name='name' label='Name' formik={formik} />
+                <Input name='nick' label='Nick' formik={formik} />
+                <Input name='description' label='Description' formik={formik} />
+                <Textarea name='text' label='Text' formik={formik} />
+                {!formik.isValid && !!formik.submitCount && <div style={{color: 'red'}}>Some fields are invalid</div>}
+                {!!submittingError && <Alert color='red'>{submittingError}</Alert>}
+                {successMessageVisible && <Alert color='green'>Idea created</Alert>}
+                <Button loading={formik.isSubmitting}>Create Idea</Button>
+            </FromItems>
         </form>
         </Segment>
     )

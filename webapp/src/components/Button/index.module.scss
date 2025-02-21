@@ -1,0 +1,15 @@
+.button {
+    font-weight: bold;
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 14px 20px;
+    transition-duration: 0.2s;
+    user-select: none;
+
+    &:hover {
+        border-color: var(--color-black);
+        transform: translateY(-2px);
+    }
+}
