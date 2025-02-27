@@ -8,7 +8,7 @@ export const ViewIdeaPage = () => {
     const {ideaNick} = useParams() as ViewIdeaRouteParams
 
     const { data, error, isLoading, isFetching, isError } = trpc.getIdea.useQuery({
-        ideaNick
+        ideaNick,
     });
 
     if (isLoading || isFetching) {

@@ -29,12 +29,12 @@ export const NewIdeaPage = () => {
                 formik.resetForm()
                 setSuccessMessageVisible(true)
                 setTimeout(() => {
-                    setSuccessMessageVisible(false)
+                  setSuccessMessageVisible(false)
                 }, 3000)
-            } catch (error: any) {
+              } catch (error: any) {
                 setSubmittingError(error.message)
                 setTimeout(() => {
-                    setSubmittingError(null)
+                  setSubmittingError(null)
                 }, 3000)
             }
         }
