@@ -3,12 +3,12 @@ import { trpc } from '../../lib/trpc'
 
 export const getIdeaTrpcRoute = trpc.procedure.input(
   z.object({
-    ideanick: z.string(),
+    ideaNick: z.string(),
   })
 ).query( async ({ctx, input}) => {
   const idea = await ctx.prisma.idea.findUnique({
     where: {
-      nick: input.ideanick
+      nick: input.ideaNick
     }
   })
 
