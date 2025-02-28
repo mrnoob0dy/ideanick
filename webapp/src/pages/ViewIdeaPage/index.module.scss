@@ -1,0 +1,26 @@
+.createdAt {
+    font-size: 14px;
+    color: var(--color-blue);
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.nick {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.ideaWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid gray;
+    overflow: hidden;
+}

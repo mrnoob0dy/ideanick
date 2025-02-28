@@ -3,6 +3,7 @@ import { ViewIdeaRouteParams } from "../../lib/routes"
 import { trpc } from "../../lib/trpc"
 import css from './index.module.scss'
 import { Segment } from "../../components/Segment"
+import {format} from 'date-fns/format'
 
 export const ViewIdeaPage = () => {
     const {ideaNick} = useParams() as ViewIdeaRouteParams
@@ -23,7 +24,12 @@ export const ViewIdeaPage = () => {
 
     return (
         <Segment title={data.idea.name} description={data.idea.description}>
-            <div className={css.text} dangerouslySetInnerHTML={{ __html: data.idea.text }} />
+            <div className={css.ideaWrapper}>
+                <div className={css.name}>{data.idea.name}</div>
+                <div className={css.nick}>Created: {data.idea.nick}</div>
+                <div className={css.createdAt}>Created At: {format(new Date(data.idea.createdAt), 'yyyy-MM-dd')}</div>
+                <div className={css.text} dangerouslySetInnerHTML={{ __html: data.idea.text }} />
+            </div>
         </Segment>
     )
 }
