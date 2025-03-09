@@ -28,6 +28,7 @@ export const ViewIdeaPage = () => {
                 <div className={css.name}>{data.idea.name}</div>
                 <div className={css.nick}>Created: {data.idea.nick}</div>
                 <div className={css.createdAt}>Created At: {format(new Date(data.idea.createdAt), 'yyyy-MM-dd')}</div>
+                <div className={css.author}>Author: {data.idea.author.nick}</div>
                 <div className={css.text} dangerouslySetInnerHTML={{ __html: data.idea.text }} />
             </div>
         </Segment>
