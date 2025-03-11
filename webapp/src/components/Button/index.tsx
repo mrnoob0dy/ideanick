@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import css from './index.module.scss'
 import cn from 'classnames'
 
@@ -7,4 +8,12 @@ export const Button = ({ children, loading = false }: { children: React.ReactNod
         {loading ? 'Submitting...' : children}
       </button>
     )
-  }
+}
+
+export const LinkButton = ({ children, to }: { children: React.ReactNode; to: string }) => {
+  return (
+    <Link className={cn({ [css.button]: true })} to={to}>
+      {children}
+    </Link>
+  )
+}
