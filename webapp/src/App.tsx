@@ -10,23 +10,26 @@ import { SignUpPage } from "./pages/SignUpPage";
 import { SignInPage } from "./pages/SignInPage";
 import { SignOutPage } from "./pages/SignOutPage";
 import { EditIdeaPage } from "./pages/EditIdeaPage";
+import { AppContextProvider } from "./lib/ctx";
 
 export const App = () => {
     return (
         <TrpcProvider>
-            <BrowserRouter>
-                <Routes>
-                    <Route path={routes.getSignOutRoute()} element={<SignOutPage />}></Route>
-                    <Route element={<Layout />}>
-                        <Route path={routes.getSignUpRoute()} element={<SignUpPage />}></Route>
-                        <Route path={routes.getSignInRoute()} element={<SignInPage />}></Route>
-                        <Route path={routes.getAllIdeasRoute()} element={<AllIdeasPAge />}></Route>
-                        <Route path={routes.getNewIdeaRoute()} element={<NewIdeaPage />}></Route>                   
-                        <Route path={routes.getViewIdeaRoute(routes.viewIdeaRouteParams)} element={<ViewIdeaPage />}></Route>
-                        <Route path={routes.getEditIdeaRoute(routes.editIdeaRouteParams)} element={<EditIdeaPage />}></Route>
-                    </Route>
-                </Routes>
-            </BrowserRouter>
+            <AppContextProvider>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path={routes.getSignOutRoute()} element={<SignOutPage />}></Route>
+                        <Route element={<Layout />}>
+                            <Route path={routes.getSignUpRoute()} element={<SignUpPage />}></Route>
+                            <Route path={routes.getSignInRoute()} element={<SignInPage />}></Route>
+                            <Route path={routes.getAllIdeasRoute()} element={<AllIdeasPAge />}></Route>
+                            <Route path={routes.getNewIdeaRoute()} element={<NewIdeaPage />}></Route>                   
+                            <Route path={routes.getViewIdeaRoute(routes.viewIdeaRouteParams)} element={<ViewIdeaPage />}></Route>
+                            <Route path={routes.getEditIdeaRoute(routes.editIdeaRouteParams)} element={<EditIdeaPage />}></Route>
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </AppContextProvider>
         </TrpcProvider>
     );
 };
